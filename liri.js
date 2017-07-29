@@ -7,16 +7,10 @@ var spotify = require('spotify');
 var client = new twitter(keys.twitterKeys);
 var fs = require('fs');
 
-//Stored argument's array
-
 var nodeArgv = process.argv;
 var command = process.argv[2];
 
-//movie or song
-
 var x = "";
-
-//attaches multiple word arguments
 
 for (var i = 3; i < nodeArgv.length; i++) {
     if (i > 3 && i < nodeArgv.length) {
@@ -25,8 +19,6 @@ for (var i = 3; i < nodeArgv.length; i++) {
         x = x + nodeArgv[i];
     }
 }
-
-//switch case
 
 switch (command) {
     case "my-tweets":
@@ -60,8 +52,7 @@ switch (command) {
 
 function showTweets() {
   
-    //Display last 20 Tweets
-
+    
     var screenName = { screen_name: 'King Leonidas' };
     client.get('statuses/user_timeline', screenName, function(error, tweets, response) {
         if (!error) {
